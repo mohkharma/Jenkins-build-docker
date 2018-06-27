@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("Jenkins-build-docker")
+        app = docker.build("mkharma/jenkins-build-docker")
     }
 
      /* We test our image with a simple smoke test:
