@@ -25,12 +25,7 @@ node {
         }
     }
     */
-    stage "tag docker image"{
-    
-        sh "docker tag mkharma/jenkins-build-docker localhost:5000/mkharma/jenkins-build-docker:latest"
-        
-    
-        }
+ 
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
@@ -39,6 +34,8 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
       //  docker.withRegistry('https://registry.hub.docker.com', 'docker.hub.credential') {
      // docker push localhost:5000/local.io/docker-java
+       sh "docker tag mkharma/jenkins-build-docker localhost:5000/mkharma/jenkins-build-docker:latest"   
+        
       sh "docker login -p KeVGpY24nvZB1wwB2DaavikbAJeWL5NiT41ZpnIGHwk -u unused docker-registry-default.assistahealth.com"
      sh "docker push docker-registry-default.assistahealth.com/mkharma/jenkins-build-docker:latest"
         
