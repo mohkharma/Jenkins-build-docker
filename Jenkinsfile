@@ -32,9 +32,12 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
       //  docker.withRegistry('https://registry.hub.docker.com', 'docker.hub.credential') {
-        docker.withRegistry('https://docker-registry-default.assistahealth.com', 'openshift.onpremise.credential') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }
+     // docker push localhost:5000/local.io/docker-java
+     sh "docker push docker-registry-default.assistahealth.com/mkharma/jenkins-build-docker:latest"
+        
+      //  docker.withRegistry('https://docker-registry-default.assistahealth.com', 'openshift.onpremise.credential') {
+       //     app.push("${env.BUILD_NUMBER}")
+       //     app.push("latest")
+       // }
     }
 }
