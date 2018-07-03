@@ -25,6 +25,12 @@ node {
         }
     }
     */
+stage "tag docker image"
+    
+        sh "docker tag mkharma/jenkins-build-docker localhost:5000/jenkins-build-docker:latest"
+        
+    
+        }
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
