@@ -27,7 +27,7 @@ node {
     */
 stage "tag docker image"
     
-        sh "docker tag mkharma/jenkins-build-docker localhost:5000/jenkins-build-docker:latest"
+        sh "docker tag mkharma/jenkins-build-docker localhost:5000/mkharma/jenkins-build-docker:latest"
         
     
         }
