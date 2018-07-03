@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("mkharma/jenkins-build-docker")
+        app = docker.build("mkharma/jenkins-build-docker")   //actually run>#  docker build -t mkharma/aimsui .
     }
 
      /* We test our image with a simple smoke test:
@@ -36,10 +36,10 @@ node {
      // docker push localhost:5000/local.io/docker-java
        sh "docker tag mkharma/jenkins-build-docker localhost:5000/mkharma/jenkins-build-docker:latest"   
         
-      sh "docker login -p KeVGpY24nvZB1wwB2DaavikbAJeWL5NiT41ZpnIGHwk -u unused docker-registry-default.assistahealth.com"
-     sh "docker push docker-registry-default.assistahealth.com/mkharma/jenkins-build-docker:latest"
+      sh "docker login -p KeVGpY24nvZB1wwB2DaavikbAJeWL5NiT41ZpnIGHwk -u unused docker-registry-default.xxx.com"
+     sh "docker push docker-registry-default.xxx.com/mkharma/jenkins-build-docker:latest"
         
-      //  docker.withRegistry('https://docker-registry-default.assistahealth.com', 'openshift.onpremise.credential') {
+      //  docker.withRegistry('https://docker-registry-default.xxx.com', 'openshift.onpremise.credential') {
        //     app.push("${env.BUILD_NUMBER}")
        //     app.push("latest")
        // }
